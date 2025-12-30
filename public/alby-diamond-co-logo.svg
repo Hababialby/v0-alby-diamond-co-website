@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60" fill="none">
+  <!-- Diamond icon -->
+  <g transform="translate(10, 15)">
+    <path d="M15 2 L28 12 L15 28 L2 12 Z" fill="#D4AF37" stroke="#B8960F" stroke-width="1"/>
+    <path d="M15 2 L22 12 L15 18 L8 12 Z" fill="#E8D7A0" opacity="0.6"/>
+    <path d="M15 12 L22 12 L15 18 Z" fill="#B8960F" opacity="0.3"/>
+  </g>
+  
+  <!-- Text: ALBY DIAMOND CO. -->
+  <text x="50" y="35" font-family="Cormorant Garamond, serif" font-size="18" font-weight="400" fill="#1A1A1A" letter-spacing="2">
+    ALBY DIAMOND CO.
+  </text>
+</svg>

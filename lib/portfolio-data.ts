@@ -1,0 +1,373 @@
+export interface PortfolioItem {
+  id: string
+  title: string
+  category: string
+  customerQuote: string
+  customerName: string
+  images: string[]
+}
+
+export const portfolioItems: PortfolioItem[] = [
+  {
+    id: "1",
+    title: "Radiant Solitaire Engagement Ring",
+    category: "Engagement Rings",
+    customerQuote:
+      "From the moment I saw the design, I knew it was perfect. The craftsmanship is extraordinary and exceeded all my expectations.",
+    customerName: "Sarah M.",
+    images: [
+      "/luxury-diamond-engagement-ring-solitaire-platinum.jpg",
+      "/diamond-engagement-ring-side-view-detail.jpg",
+      "/diamond-ring-closeup-sparkle.jpg",
+    ],
+  },
+  {
+    id: "2",
+    title: "Vintage Halo Diamond Ring",
+    category: "Engagement Rings",
+    customerQuote:
+      "Alby Diamond Co. brought my vision to life. This ring is absolutely stunning and truly one-of-a-kind.",
+    customerName: "Michael T.",
+    images: [
+      "/vintage-halo-diamond-ring-art-deco.jpg",
+      "/cushion-cut-diamond-ring-detail.jpg",
+      "/halo-diamond-ring-top-view.jpg",
+    ],
+  },
+  {
+    id: "3",
+    title: "Emerald Cut Three Stone Ring",
+    category: "Engagement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/emerald-cut-three-stone-diamond-ring.jpg",
+      "/emerald-cut-diamond-detail-clarity.jpg",
+      "/three-stone-ring-side-view.jpg",
+    ],
+  },
+  {
+    id: "4",
+    title: "Rose Gold Pavé Band",
+    category: "Wedding Bands",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/rose-gold-pave-diamond-band.jpg",
+      "/pave-diamond-band-detail-sparkle.jpg",
+      "/rose-gold-wedding-band.jpg",
+    ],
+  },
+  {
+    id: "5",
+    title: "Sapphire & Diamond Necklace",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/sapphire-diamond-pendant-necklace-luxury.jpg",
+      "/blue-sapphire-pendant-closeup.jpg",
+      "/diamond-halo-sapphire-necklace.jpg",
+    ],
+  },
+  {
+    id: "6",
+    title: "Diamond Tennis Bracelet",
+    category: "Bracelets",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "7",
+    title: "Pearl & Diamond Drop Earrings",
+    category: "Earrings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "8",
+    title: "Oval Diamond Halo Ring",
+    category: "Engagement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "9",
+    title: "Ruby & Diamond Cocktail Ring",
+    category: "Statement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "10",
+    title: "Diamond Stud Earrings",
+    category: "Earrings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "11",
+    title: "Marquise Diamond Band",
+    category: "Wedding Bands",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "12",
+    title: "Emerald & Diamond Pendant",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "13",
+    title: "Princess Cut Diamond Ring",
+    category: "Engagement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "14",
+    title: "Diamond Choker Necklace",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "15",
+    title: "Chandelier Diamond Earrings",
+    category: "Earrings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "16",
+    title: "Yellow Diamond Ring",
+    category: "Statement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "17",
+    title: "Eternity Band",
+    category: "Wedding Bands",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "18",
+    title: "Tanzanite & Diamond Ring",
+    category: "Statement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "19",
+    title: "Diamond Bangle Bracelet",
+    category: "Bracelets",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "20",
+    title: "Pear Shape Diamond Pendant",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "21",
+    title: "Asscher Cut Diamond Ring",
+    category: "Engagement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "22",
+    title: "Multi-Strand Pearl Necklace",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "23",
+    title: "Heart Shape Diamond Pendant",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "24",
+    title: "Cushion Cut Halo Earrings",
+    category: "Earrings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "25",
+    title: "Infinity Diamond Bracelet",
+    category: "Bracelets",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "26",
+    title: "Black Diamond Ring",
+    category: "Statement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "27",
+    title: "Riviera Diamond Necklace",
+    category: "Necklaces",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "28",
+    title: "Aquamarine & Diamond Ring",
+    category: "Statement Rings",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "29",
+    title: "Micro Pavé Diamond Band",
+    category: "Wedding Bands",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+  {
+    id: "30",
+    title: "Diamond Geometric Cuff",
+    category: "Bracelets",
+    customerQuote: "",
+    customerName: "",
+    images: [
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+      "/placeholder.svg?height=600&width=600",
+    ],
+  },
+]
