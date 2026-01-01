@@ -1,16 +1,24 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
-import type { PortfolioItem } from "@/lib/portfolio-data"
 import { ArrowLeft, Quote, Sparkles, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { AIDesignGenerator } from "@/components/ai-design-generator"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+
+interface PortfolioItem {
+  id: string
+  title: string
+  category: string
+  customer_quote?: string
+  customer_name?: string
+  images: string[]
+}
 
 interface PortfolioDetailProps {
   item: PortfolioItem
@@ -29,6 +37,12 @@ export function PortfolioDetail({ item }: PortfolioDetailProps) {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState("")
 
+  const imagesArray = Array.isArray(item.images)
+    ? item.images
+    : typeof item.images === "string"
+      ? JSON.parse(item.images)
+      : []
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -41,7 +55,6 @@ export function PortfolioDetail({ item }: PortfolioDetailProps) {
             const reader = new FileReader()
             reader.onloadend = () => {
               const base64String = reader.result as string
-              // Remove the data URL prefix (e.g., "data:image/png;base64,")
               const base64Content = base64String.split(",")[1]
               resolve({
                 filename: file.name,
@@ -57,7 +70,6 @@ export function PortfolioDetail({ item }: PortfolioDetailProps) {
         }),
       )
 
-      // Filter out any null values from failed reads
       const validAttachments = attachmentData.filter((att) => att !== null)
 
       const response = await fetch("/api/contact", {
@@ -92,6 +104,8 @@ export function PortfolioDetail({ item }: PortfolioDetailProps) {
     aiSection?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
+  const currentImage = imagesArray[selectedImage] || "/sparkling-diamond-jewelry.png"
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
       <Link
@@ -105,43 +119,52 @@ export function PortfolioDetail({ item }: PortfolioDetailProps) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div className="space-y-4">
           <div className="relative aspect-square overflow-hidden bg-muted border border-border">
-            <img
-              src={item.images[selectedImage] || "/placeholder.svg"}
+            <Image
+              src={currentImage || "/placeholder.svg"}
               alt={`${item.title} - Image ${selectedImage + 1}`}
-              className="h-full w-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
             />
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            {item.images.map((image, index) => (
-              <button
-                key={index}
-                onClick={() => setSelectedImage(index)}
-                className={`relative aspect-square overflow-hidden bg-muted border-2 transition-all ${
-                  selectedImage === index ? "border-accent" : "border-border hover:border-muted-foreground"
-                }`}
-              >
-                <img
-                  src={image || "/placeholder.svg"}
-                  alt={`${item.title} thumbnail ${index + 1}`}
-                  className="h-full w-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
+          {imagesArray.length > 1 && (
+            <div className="grid grid-cols-3 gap-4">
+              {imagesArray.map((image: string, index: number) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className={`relative aspect-square overflow-hidden bg-muted border-2 transition-all ${
+                    selectedImage === index ? "border-accent" : "border-border hover:border-muted-foreground"
+                  }`}
+                >
+                  <Image
+                    src={image || "/placeholder.svg?height=200&width=200&query=diamond+jewelry+thumbnail"}
+                    alt={`${item.title} thumbnail ${index + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 33vw, 16vw"
+                    className="object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col justify-center space-y-8">
           <div>
             <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{item.category}</p>
             <h1 className="text-3xl font-light tracking-tight text-foreground mb-4 text-balance">{item.title}</h1>
-            <div className="relative bg-background/50 border-l-4 border-accent pl-6 py-3 mt-4">
-              <Quote className="absolute -top-2 -left-3 h-8 w-8 text-accent/20" />
-              <blockquote className="text-base text-foreground/80 italic leading-relaxed mb-3">
-                "{item.customerQuote}"
-              </blockquote>
-              <p className="text-sm text-muted-foreground">— {item.customerName}</p>
-            </div>
+            {item.customer_quote && (
+              <div className="relative bg-background/50 border-l-4 border-accent pl-6 py-3 mt-4">
+                <Quote className="absolute -top-2 -left-3 h-8 w-8 text-accent/20" />
+                <blockquote className="text-base text-foreground/80 italic leading-relaxed mb-3">
+                  "{item.customer_quote}"
+                </blockquote>
+                {item.customer_name && <p className="text-sm text-muted-foreground">— {item.customer_name}</p>}
+              </div>
+            )}
           </div>
 
           {submitSuccess ? (

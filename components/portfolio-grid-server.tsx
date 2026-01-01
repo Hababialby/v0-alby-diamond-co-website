@@ -7,13 +7,10 @@ import { Button } from "@/components/ui/button"
 interface PortfolioItem {
   id: string
   title: string
-  description: string
   category: string
-  image: string
-  price: string
-  testimonial_quote?: string
-  testimonial_author?: string
-  details?: string
+  customer_quote?: string
+  customer_name?: string
+  images: string[]
   created_at: string
 }
 

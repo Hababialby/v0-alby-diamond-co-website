@@ -1,17 +1,34 @@
-import { notFound } from 'next/navigation'
-import { SiteHeader } from '@/components/site-header'
-import { SiteFooter } from '@/components/site-footer'
-import { products } from '@/lib/shop-data'
-import { ProductDetail } from '@/components/product-detail'
+import { notFound } from "next/navigation"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
+import { ShopProductDetail } from "@/components/shop-product-detail"
+import { getProduct } from "@/lib/shopify"
+import type { Metadata } from "next"
 
-export function generateStaticParams() {
-  return products.map((product) => ({
-    id: product.id,
-  }))
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const product = await getProduct(id)
+
+  if (!product) {
+    return {
+      title: "Product Not Found | Alby Diamond Co.",
+    }
+  }
+
+  return {
+    title: `${product.title} | Jewelry18 | Alby Diamond Co.`,
+    description: product.description || `${product.title} - Fine jewelry by Alby Diamond Co.`,
+    openGraph: {
+      title: product.title,
+      description: product.description || `${product.title} - Fine jewelry by Alby Diamond Co.`,
+      images: product.images?.edges?.[0]?.node?.url ? [product.images.edges[0].node.url] : [],
+    },
+  }
 }
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === params.id)
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const product = await getProduct(id)
 
   if (!product) {
     notFound()
@@ -20,9 +37,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <SiteHeader />
-      
+
       <main className="flex-1">
-        <ProductDetail product={product} />
+        <ShopProductDetail product={product} />
       </main>
 
       <SiteFooter />

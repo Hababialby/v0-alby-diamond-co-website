@@ -235,12 +235,18 @@ export default function PortfolioManager() {
             </Button>
             <h1 className="text-3xl font-semibold text-foreground">Portfolio Manager</h1>
           </div>
-          {!showForm && (
-            <Button onClick={() => setShowForm(true)}>
-              <Plus className="h-4 w-4 mr-2" />
-              Add Portfolio Item
+          <div className="flex gap-3">
+            <Button variant="outline" onClick={() => router.push("/admin/bulk-upload")}>
+              <Upload className="h-4 w-4 mr-2" />
+              Bulk Upload Photos
             </Button>
-          )}
+            {!showForm && (
+              <Button onClick={() => setShowForm(true)}>
+                <Plus className="h-4 w-4 mr-2" />
+                Add Portfolio Item
+              </Button>
+            )}
+          </div>
         </div>
 
         {/* Form */}

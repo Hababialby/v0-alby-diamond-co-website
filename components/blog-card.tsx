@@ -2,9 +2,22 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import type { BlogPost } from "@/lib/blog-data"
 import { Card } from "@/components/ui/card"
 import { Calendar, Clock } from "lucide-react"
+
+interface BlogPost {
+  id: string
+  title: string
+  excerpt: string
+  content: string
+  image: string
+  category: string
+  author: string
+  date: string
+  read_time: string
+  published: boolean
+  created_at: string
+}
 
 interface BlogCardProps {
   post: BlogPost
@@ -16,7 +29,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <Card className="group overflow-hidden border border-border transition-all hover:shadow-lg">
         <div className="relative aspect-[2/1] overflow-hidden bg-muted">
           <Image
-            src={post.image || "/placeholder.svg"}
+            src={post.image || "/placeholder.svg?height=400&width=800&query=diamond+jewelry+blog"}
             alt={post.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -32,12 +45,16 @@ export function BlogCard({ post }: BlogCardProps) {
             <div className="flex items-center gap-1">
               <Calendar className="h-3 w-3" />
               <span>
-                {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                {new Date(post.date || post.created_at).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
               </span>
             </div>
             <div className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              <span>{post.readTime}</span>
+              <span>{post.read_time || "5 min read"}</span>
             </div>
           </div>
         </div>

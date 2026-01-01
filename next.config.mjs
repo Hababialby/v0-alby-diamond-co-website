@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "blob.v0.app",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 }
